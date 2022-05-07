@@ -5,7 +5,10 @@ const options = {
   chainID: "columbus-5",
 };
 
-export const getBalance = async (token_address, account_address) => {
+export const getBalance = async (
+  token_address: string,
+  account_address: string
+) => {
   const lcd = new LCDClient({ URL: options.lcd, chainID: options.chainID });
 
   return lcd.wasm.contractQuery(token_address, {
@@ -13,7 +16,7 @@ export const getBalance = async (token_address, account_address) => {
   });
 };
 
-export const getTokenInfo = async (contract_address) => {
+export const getTokenInfo = async (contract_address: string) => {
   const lcd = new LCDClient({ URL: options.lcd, chainID: options.chainID });
 
   return lcd.wasm.contractQuery(contract_address, { token_info: {} });
